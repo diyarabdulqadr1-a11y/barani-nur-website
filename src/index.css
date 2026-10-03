@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #15140f;
+  --color-charcoal: #1c1b16;
+  --color-navy: #14202b;
+  --color-olive: #6f8c44;
+  --color-olive-deep: #4d6630;
+  --color-olive-seal: #5b7637;
+  --color-brown: #6b513a;
+  --color-gold: #c9a44c;
+  --color-gold-soft: #d9bd78;
+  --color-cream: #f3ecdb;
+  --color-beige: #e3d6b8;
+  --color-paper: #efe7d4;
+
+  --font-display: "Noto Kufi Arabic", "Noto Naskh Arabic", serif;
+  --font-body: "Noto Naskh Arabic", "Readex Pro", "Noto Kufi Arabic", serif;
+  --font-quran: "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Naskh Arabic", "Readex Pro", "Noto Kufi Arabic", serif;
+  background-color: #100f0b;
+  color: #e9e0cc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 2.0;
+  font-weight: 400;
+  letter-spacing: 0;
+  word-spacing: 0.02em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* پیتە کوردییەکان (ڕ ڵ ۆ ێ ە ڤ) بە تەواوی پشتگیریی دەکرێن */
+* {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "rlig" 1;
+}
+
+.font-display {
+  font-family: "Noto Kufi Arabic", "Noto Naskh Arabic", serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+.font-quran {
+  font-family: "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif;
+  font-weight: 400;
+  line-height: 2.2;
+  letter-spacing: 0.02em;
+}
+
+/* Inputs و buttons فۆنتی هاوبەش بگرن */
+input, textarea, select, button {
+  font-family: inherit;
+}
+
+/* بەرزکردنەوەی ڕوونی بۆ دەقی کوردیی گەورە */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Kufi Arabic", "Noto Naskh Arabic", serif;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* بۆ blockquote و دەقە درێژەکان */
+blockquote, .leading-loose, .leading-relaxed {
+  line-height: 2.1 !important;
+}
+
+/* پاراستنی شێوازی ڕاست بۆ پیتە تایبەتییەکانی کوردی */
+:lang(ckb), [lang="ckb"] {
+  font-family: "Noto Naskh Arabic", "Readex Pro", serif;
+}
+
+/* Light reading mode */
+.light-mode body,
+.light-mode {
+  background-color: #f3ecdb;
+  color: #2a271d;
+}
+.light-mode body { background-color: #f3ecdb; }
+
+/* Light-mode color overrides for the spiritual palette */
+.light-mode .text-cream { color: #2a271d !important; }
+.light-mode .text-beige\/80,
+.light-mode .text-beige\/70,
+.light-mode .text-beige\/60,
+.light-mode .text-beige\/50,
+.light-mode .text-beige\/40 { color: #5a5440 !important; }
+.light-mode .bg-ink\/85,
+.light-mode .bg-ink\/80,
+.light-mode .bg-ink\/95 { background-color: rgba(243,236,219,0.92) !important; }
+.light-mode .bg-charcoal\/60,
+.light-mode .bg-charcoal\/50,
+.light-mode .bg-charcoal\/80,
+.light-mode .bg-charcoal { background-color: #fbf6ea !important; }
+.light-mode .border-gold\/15,
+.light-mode .border-gold\/20,
+.light-mode .border-gold\/10 { border-color: rgba(124,107,58,0.25) !important; }
+.light-mode .text-gold { color: #8a6d22 !important; }
+.light-mode .text-gold\/80,
+.light-mode .text-gold\/70,
+.light-mode .text-gold\/60 { color: #9a7d32 !important; }
+.light-mode ::-webkit-scrollbar-track { background: #e3d6b8; }
+
+::selection {
+  background: rgba(201, 164, 76, 0.35);
+  color: #fff;
+}
+
+/* Paper texture via subtle noise */
+.paper-texture {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,164,76,0.05), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(124,155,78,0.05), transparent 40%);
+}
+
+.geo-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(201,164,76,0.06) 0px, rgba(201,164,76,0.06) 1px, transparent 1px, transparent 16px),
+    repeating-linear-gradient(-45deg, rgba(201,164,76,0.06) 0px, rgba(201,164,76,0.06) 1px, transparent 1px, transparent 16px);
+}
+
+.light-arch {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,164,76,0.18), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(77,102,48,0.12), transparent 70%);
+}
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup { animation: fadeup 0.8s ease-out both; }
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+.animate-glow { animation: glow 6s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #14130e; }
+::-webkit-scrollbar-thumb { background: #4d6630; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #6f8c44; }
+
+:root { --bn-scale: 1; }
+.fs-sm { font-size: calc(0.92rem * var(--bn-scale)); }
+.fs-base { font-size: calc(1rem * var(--bn-scale)); }
+.fs-lg { font-size: calc(1.12rem * var(--bn-scale)); }
